@@ -1,0 +1,9 @@
+node_modules/
+/static/uploads
+file/
+
+config.js
+*.log
+__debug_bin.exe
+rest-api/server.exe~
+.env

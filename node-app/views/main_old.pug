@@ -1,0 +1,609 @@
+extends _base.pug
+
+block content
+    include base/navbar.pug
+    #notification.popup.notification.is-hidden.is-light.is-success.has-text-centered.montserrat-regular
+        p.title.is-1.has-text-black#notification-message Заявка успешно отправлена!
+        p.subtitle.is-6.mt-3#notification-message.has-text-black Скоро мы свяжемся с вами по номеру телефона 
+            br
+            | для её подтверждения
+        button#close-popup.mt-3.button.is-small.is-fullwidth.has-text-black.is-success.is-light Закрыть уведомление
+    div#traffic_lights.is-hidden-mobile.is-hidden-tablet-only
+        .notification
+            if traffic_lights_stage == 1
+                span.icon.is-large
+                    i.fas.fa-check
+                span.subtitle Работаем в штатном режиме
+                .button.is-fullwidth.is-success.has-text-white Готовы принять ваши заявки
+            else if traffic_lights_stage == 2
+                span.icon.is-large
+                    i.fas.fa-clock
+                span.subtitle Возможны долгие ответы
+                .tags
+                    .button.is-fullwidth.is-warning.has-text-white Временно работаем со сбоями
+            else if traffic_lights_stage == 3
+                span.icon.is-large
+                    i.fas.fa-hourglass-start
+                span.subtitle Временно на пересменке
+                .button.is-fullwidth.is-danger.has-text-white Ответим на заявки после 5:30 утра
+            else if traffic_lights_stage == 4
+                h1.subtitle 🚀 Заявка отправлена, спасибо!
+                h1.subtitle Скоро мы свяжемся с вами по номеру телефона для подтверждения.
+    div#traffic_lights_mob.animate__fadeInDown.animate__animated.is-hidden-desktop
+        .box.notification.is-dark.is-radiusless
+            if traffic_lights_stage == 1
+                .button.is-fullwidth.is-light.is-success.is-disabled.has-text-black 🟢 Готовы принять ваши заявки
+            else if traffic_lights_stage == 2
+                .button.is-fullwidth.is-light.is-success.is-disabled.has-text-black 🟡 Возможны долгие ответы
+            else if traffic_lights_stage == 3
+                .button.is-fullwidth.is-light.is-success.is-disabled.has-text-black 🔴 Временно не работаем - у нас пересменка
+    .container#app
+        #image-modal.modal
+            .modal-background
+                .modal-content
+            .modal-card
+                header.modal-card-head
+                    p.modal-card-title Оставить заявку
+                section.modal-card-body
+                    input.input
+                footer.modal-card-foot
+                    .buttons
+                        button.button.is-success.is-dark
+                            span.icon.is-small
+                                i.fas.fa-check
+                            span Подтвердить
+                        button#image-modal-close.button.is-dark Назад
+            button#image-modal-close.modal-close
+    .hero.is-fullheight#main
+        .hero-body.animate__fadeIn.animate__animated
+            .container
+                .columns
+                    .column#left_side.is-half-desktop.is-full-mobile.is-full-tablet
+                        .buttons.is-centered.is-hidden-desktop.is-hidden-widescreen.is-hidden-tablet
+                            a.button.is-centered.is-success.has-text-white(target="_blank" href="https://wa.me/message/DGWKPKYDQFRQJ1")
+                                span.icon.is-small
+                                    i.fab.fa-whatsapp
+                            a.button.is-centered.is-link.has-text-white(target="_blank" href="https://t.me/highlevel30")
+                                span.icon.is-small
+                                    i.fab.fa-telegram
+                            a.button.is-centered.is-link.has-text-white(target="_blank" href="https://vk.com/highlevel30")
+                                span.icon.is-small
+                                    i.fab.fa-vk
+                        h1#title.is-hidden-mobile.title.has-text-black.has-text-weight-large.has-text-white.montserrat-regular.is-hidden-tablet SERVICE CENTER
+                        h1#title.is-hidden-mobile.title.has-text-black.has-text-weight-large.has-text-white.montserrat-regular.is-hidden-mobile.is-hidden-tablet-only SERVICE CENTER
+                        h1#title.is-hidden-mobile.title.has-text-black.has-text-weight-large.has-text-white.montserrat-regular.is-hidden-desktop.is-hidden-mobile.has-text-centered SERVICE CENTER
+                        h1.title.has-text-centered.is-hidden-desktop.mb-3.is-size-1.is-size-2-mobile.has-text-black.has-text-weight-large.has-text-white.montserrat-regular.is-hidden-tablet SERVICE CENTER
+                        h4.is-hidden-mobile.is-hidden-tablet.subtitle.is-4.is-size-6-mobile.has-text-black.has-text-weight-medium.has-text-white.montserrat-regular
+                            | Ремонт 
+                            strong.has-text-black оргтехники 
+                            | и 
+                            strong.has-text-black цифровой техники ⚙️
+                            br
+                            | Выездной мастер по городу  
+                            strong.has-text-weight-large.has-text-link Астрахань
+                        h4.has-text-centered.is-hidden-desktop.subtitle.is-5.has-text-black.has-text-weight-medium.has-text-white.montserrat-regular
+                            | Ремонт 
+                            strong.has-text-black оргтехники 
+                            | и 
+                            strong.has-text-black цифровой техники
+                            br
+                            | Выездной мастер по городу  
+                            strong.has-text-weight-large.has-text-link Астрахань
+                        .columns.is-mobile.is-multiline
+                            .column.is-full
+                                //- .typewriter.has-background-white.is-dark.mt-1.mb-1
+                                //-     span.icon.is-small.has-text-info-dark
+                                //-         i.fas.fa-search
+                                //-     h1.is-2.ml-3.has-text-info-dark.has-text-weight-semibold.montserrat-regular Починить
+                                //-         h2#changing-text.has-text-info-dark.is-2.typing-erase.ml-2.has-text-weight-semibold.montserrat-regular компьютер
+                                h2.is-hidden-mobile.subtitle.mt-auto.is-6
+                                    strong.has-text-black Оставляйте заявку
+                                    | , и наш мастер свяжется с вами в ближайшее время
+                                h2.is-hidden-desktop.is-hidden-tablet.has-text-centered.subtitle.is-4.is-size-6
+                                    strong.has-text-black Оставляйте заявку
+                                    | , и наш мастер свяжется с вами в ближайшее время
+                                .notification.is-link.mt-auto
+                                    .field
+                                        form#request_form(action='submit' method='post')
+                                            .field
+                                                input#inputName.mt-1.input.is-medium.is-medium-mobile.is-link(name='name' required placeholder='Ваше имя')
+                                            .field
+                                                input.input.is-medium.is-medium-mobile.is-link(id='inputPhone' name='tel' type='text' placeholder='Номер телефона')
+                                            .field
+                                                //- button#showModal.button.is-link.is-light.is-medium.is-fullwidth
+                                                button#request_form_button.button.is-info.is-medium.is-light.is-fullwidth(type="submit")
+                                                    span.icon.is-small
+                                                        i.fas.fa-check
+                                                    span Отправить заявку
+                                //- Иконки услуг
+                                .columns.is-mobile.is-spaced.is-2.is-hidden-mobile.is-hidden-tablet
+                                    .tags.ml-3
+                                        //- .tag.is-medium.is-link.is-light
+                                        //-     span Мы занимаемся ремонтом цифровой, бытовой и оргтехники
+                                        //-     br
+                                        //-     span Мы занимаемся ремонтом цифровой, бытовой и оргтехники
+                                        //- .tag.is-medium.is-link.is-light
+                                        //-     span Cоздаём заказные сборки ПК, проводим диагностику, чистку и ремонт компьютеров.
+                                        .tag.is-medium.is-light
+                                            span.icon.is-medium
+                                                i.fas.fa-briefcase
+                                            span Гарантия на производимые работы
+                                        .tag.is-medium.is-light
+                                            span.icon.is-medium
+                                                i.fas.fa-clock
+                                            span Мастер приедет за 60 минут
+                                        .tag.is-medium.is-light
+                                            span.icon.is-medium
+                                                i.fas.fa-fire
+                                            span Скидка 15% на ваш первый заказ
+                                        .tag.is-medium.is-light
+                                            span.icon.is-medium
+                                                i.fas.fa-bolt
+                                            span Называем цену сразу, перед ремонтом
+                                        .tag.is-medium.is-light
+                                            span.icon.is-medium
+                                                i.fas.fa-briefcase
+                                            span Работаем 24/7 без праздников и выходных
+                                .tags.is-fullwidth.are-medium.is-justify-content-center
+                                    .tag
+                                        span.icon
+                                            i.fas.fa-briefcase
+                                        span Гарантия на производимые работы
+                                    .tag
+                                        span.icon
+                                            i.fas.fa-clock
+                                        span Мастер приедет за 60 минут
+                                    .tag
+                                        span.icon
+                                            i.fas.fa-fire
+                                        span Скидка 15% на ваш первый заказ
+                                    .tag
+                                        span.icon
+                                            i.fas.fa-bolt
+                                        span Называем цену перед ремонтом
+                                    .tag
+                                        span.icon
+                                            i.fas.fa-hourglass-start
+                                        span Работаем 24/7 без выходных
+                                    //- .level.mt-5
+                                    //-     .level-left
+                                    //-         div
+                                    //-             span.icon.is-medium
+                                    //-                 i.fas.fa-clock
+                                    //-             span Мастер приедет за 60 минут
+                                    //-             br
+                                    //-             span.icon.is-medium
+                                    //-                 i.fas.fa-fire
+                                    //-             span Скидка 15% на ваш первый заказ
+                                    //-             br
+                                    //-             span.icon.is-medium
+                                    //-                 i.fas.fa-bolt
+                                    //-             span Называем цену сразу, перед ремонтом
+                                    //-             br
+                                    //-             span.icon.is-medium
+                                    //-                 i.fas.fa-briefcase
+                                    //-             span Работаем 24/7 без праздников и выходных
+                                    //-     .level-right.is-hidden-mobile
+                                    //-         div 
+                                    //-             figure.image.is-128x128
+                                    //-                 img(src="/static/images/logo_new.png")
+                        //- h1.subtitle.has-text-dark.is-6.montserrat-regular.has-text-centered.is-hidden-mobile Мы занимаемся ремонтом цифровой, бытовой и оргтехники.
+                            br
+                            | Создаём заказные сборки ПК, проводим диагностику, чистку и ремонт компьютеров.
+    .hero.is-fullheight.montserrat-regular#secondary
+        .hero-body
+            .container
+                .columns.is-hidden-mobile.is-hidden-desktop-only.is-hidden-tablet-only
+                    .column.is-one-quarter
+                    .column.mr-6(style="margin-top: 6em;")
+                        .columns.is-multiline
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Диагностика ПК
+                                    p.subtitle.mt-2.is-6
+                                        | Определяем причину неисправности и предоставляем
+                                        | прозрачную оценку стоимости ремонта
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-window-restore
+                                        span Заказать диагностику
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Принтеры
+                                    p.subtitle.mt-2.is-6
+                                        | Специализируемся на ремонте принтеров всех типов:
+                                        | струйных, лазерных, черно-белых и цветных
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-print
+                                        span Починка принтера
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Интернет и роутеры
+                                    p.subtitle.mt-2.is-6
+                                        | Мы проводим диагностику роутеров и интернет-соединения
+                                        | выявляем причину неполадок и помогаем их устранить
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-globe
+                                        span Вызвать мастера
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Смартфоны и планшеты
+                                    p.subtitle.mt-2.is-6
+                                        | Ремонтируем смартфоны и планшеты всех марок: 
+                                        | Apple, Samsung, Xiaomi, Huawei и др.
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-tablet
+                                        span Заказать починку
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Заказные сборки ПК
+                                    p.subtitle.mt-2.is-6
+                                        | Создаем компьютеры по вашим
+                                        | индивидуальным требованиям.
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-desktop
+                                        span Подобрать сборку
+                            .column.is-half
+                                .notification
+                                    h1.title.is-5 Телевизоры
+                                    p.subtitle.mt-2.is-6
+                                        | Осуществляем ремонт телевизоров
+                                        | любой марки и модели
+                                    a.button.is-link(href="#main")
+                                        span.icon.is-small
+                                            i.fas.fa-tv
+                                        span Заказать диагностику
+                .columns.is-mobile.is-multiline.is-hidden-widescreen(style="margin-top: 4em;")
+                    .column.is-full
+                        .notification
+                            h1.title.is-5 Диагностика ПК
+                            p.subtitle.mt-2.is-6
+                                | Определяем причину неисправности и предоставляем
+                                | прозрачную оценку стоимости ремонта
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-window-restore
+                                span Заказать диагностику
+                        .notification
+                            h1.title.is-5 Принтеры
+                            p.subtitle.mt-2.is-6
+                                | Специализируемся на ремонте принтеров всех типов:
+                                | струйных, лазерных, черно-белых и цветных
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-print
+                                span Починка принтера
+                        .notification
+                            h1.title.is-5 Интернет и роутеры
+                            p.subtitle.mt-2.is-6
+                                | Мы проводим диагностику роутеров и интернет-соединения
+                                | выявляем причину неполадок и помогаем их устранить
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-globe
+                                span Вызвать мастера
+                    .column.is-full
+                        .notification
+                            h1.title.is-5 Смартфоны и планшеты
+                            p.subtitle.mt-2.is-6
+                                | Ремонтируем смартфоны и планшеты всех марок: 
+                                | Apple, Samsung, Xiaomi, Huawei и др.
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-tablet
+                                span Заказать починку
+                        .notification
+                            h1.title.is-5 Заказные сборки ПК
+                            p.subtitle.mt-2.is-6
+                                | Создаем компьютеры по вашим
+                                | индивидуальным требованиям.
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-desktop
+                                span Подобрать сборку
+                        .notification
+                            h1.title.is-5 Телевизоры
+                            p.subtitle.mt-2.is-6
+                                | Осуществляем ремонт телевизоров
+                                | любой марки и модели
+                            a.button.is-link.is-fullwidth(href='tel:+79999999999')
+                                span.icon.is-small
+                                    i.fas.fa-tv
+                                span Заказать диагностику
+    footer.footer#footer
+        .container.has-text-centered.is-fluid.ml-4.is-hidden-mobile
+            h1.title.montserrat-regular.mt-6.has-text-weight-medium.has-text-dark Информация о нас
+            h2.subtitle.montserrat-regular.mt-3.has-text-grey-dark Мы - сплочённая команда профессионалов, для которых ремонт техники - не просто работа, а призвание.
+                br
+                | Сплочённость нашей команды - это залог успеха и доверия наших клиентов.
+        .columns.is-hidden-mobile
+            .column.is-full.has-text-centered
+                .columns.is-multiline.is-mobile.is-gapless
+                    .column.is-two-quards
+                        .content
+                            h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Опыт
+                            p.has-text-grey-dark Мы понимаем, что мир технологий не стоит на месте, и чтобы быть на шаг впереди, наши специалисты постоянно повышают свою квалификацию. Регулярные тренинги и курсы позволяют нам осваивать новые методики и подходы к ремонту, что гарантирует высокое качество и надёжность наших услуг.
+                    .column.is-two-quards
+                        .content
+                            h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Качество
+                            p.has-text-grey-dark Мы ценим мнение каждого нашего клиента и просим вас оставлять обратную связь. Это помогает нам понимать, что мы делаем хорошо, а над чем ещё стоит поработать. Ваши отзывы позволяют нам совершенствоваться и становиться лучше с каждым днём.
+                    .column.is-two-quards
+                        .content
+                            h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Надежность
+                            p.has-text-grey-dark Наши мастера всегда готовы прийти на помощь. Мы оперативно реагируем на запросы и стараемся решать проблемы клиентов в кратчайшие сроки. Надежность и ответственность - наши ключевые принципы в работе.
+                    .column.is-two-quards
+                        .content
+                            h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Гарантия
+                            p.has-text-grey-dark Наши мастера готовы приехать к вам на дом и починить любую технику быстро и качественно. Доверьте свою технику профессионалам - и вы останетесь довольны результатом! Мы гарантируем качество и предоставляем гарантию на все виды выполненных работ.
+        .container.has-text-centered.is-fluid.is-hidden-desktop
+            h1.title.montserrat-regular.mt-6.has-text-weight-medium.has-text-dark Информация о нас
+            h2.subtitle.montserrat-regular.mt-3.has-text-grey-dark Мы - сплочённая команда профессионалов, для которых ремонт техники - не просто работа, а призвание.
+                br
+                | Сплочённость нашей команды - это залог успеха и доверия наших клиентов.
+        .columns.is-hidden-desktop.is-multiline.is-mobile.has-text-centered
+            .column
+                .content
+                    h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Опыт
+                    p.has-text-grey-dark Мы понимаем, что мир технологий не стоит на месте, и чтобы быть на шаг впереди, наши специалисты постоянно повышают свою квалификацию. Регулярные тренинги и курсы позволяют нам осваивать новые методики и подходы к ремонту, что гарантирует высокое качество и надёжность наших услуг.
+            .column
+                .content
+                    h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Качество
+                    p.has-text-grey-dark Мы ценим мнение каждого нашего клиента и просим вас оставлять обратную связь. Это помогает нам понимать, что мы делаем хорошо, а над чем ещё стоит поработать. Ваши отзывы позволяют нам совершенствоваться и становиться лучше с каждым днём.
+            .column
+                .content
+                    h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Надежность
+                    p.has-text-grey-dark Наши мастера всегда готовы прийти на помощь. Мы оперативно реагируем на запросы и стараемся решать проблемы клиентов в кратчайшие сроки. Надежность и ответственность - наши ключевые принципы в работе.
+            .column
+                .content
+                    h1.title.is-4.has-text-dark.montserrat-regular.has-text-weight-medium Гарантия
+                    p.has-text-grey-dark Наши мастера готовы приехать к вам на дом и починить любую технику быстро и качественно. Доверьте свою технику профессионалам - и вы останетесь довольны результатом! Мы гарантируем качество и предоставляем гарантию на все виды выполненных работ.
+        .container.has-text-centered.is-fluid.ml-4.has-text-centered.is-hidden-mobile
+            h1.title.is-3.has-text-dark.montserrat-regular.has-text-weight-medium Связь с нами
+            //- p.has-text-grey-dark ИП Кадырбердиев Ильгам Наильевич
+            //- p.has-text-grey-dark ИНН 300601763502
+            //- p.has-text-grey-dark ОГРНИП 323300000052361
+            p.has-text-grey-dark Юр. и факт. адрес: по запросу
+            p.has-text-grey-dark Тел. +7 (988) 063-55-70
+            p.has-text-grey-dark Запасной тел. +7 (999) 723-95-88
+            p.has-text-grey-dark Почта: slendd@yandex.com
+        .container.has-text-left.is-fluid.has-text-centered.is-hidden-widescreen
+            h1.title.is-3.has-text-dark.montserrat-regular.has-text-weight-medium.has-text-centered Связь с нами
+            //- p.has-text-grey-dark ИП Кадырбердиев Ильгам Наильевич
+            //- p.has-text-grey-dark ИНН 300601763502
+            //- p.has-text-grey-dark ОГРНИП 323300000052361
+            p.has-text-grey-dark.has-text-centered Юр. и факт. адрес: по запросу
+            p.has-text-grey-dark.has-text-centered Тел. +7 (988) 063-55-70
+            p.has-text-grey-dark.has-text-centered Запасной тел. +7 (999) 723-95-88
+            p.has-text-grey-dark.has-text-centered Почта: slendd@yandex.com            
+    style.
+        /* Основные стили для уведомления */
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #notification {
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #notification p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Показ уведомления */
+        .popup.is-hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .popup:not(.is-hidden) {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .popup {
+                right: 10px;
+                left: 10px;
+                bottom: -10px;
+            }
+
+            #notification {
+            padding: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            }
+
+            #notification button {
+            margin-left: 0;
+            align-self: flex-end;
+            }
+        }
+
+        .services-panel {
+            width: 100%;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            padding: 10px 0;
+            position: relative;
+        }
+        .services-panel::before,
+        .services-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px; /* Ширина размытой области */
+            z-index: 2;
+            pointer-events: none; /* Чтобы клики проходили сквозь размытие */
+        }
+        .services-panel::before {
+            left: 0;
+            background: linear-gradient(to right, #f5f5f5, transparent);
+        }
+        .services-panel::after {
+            right: 0;
+            background: linear-gradient(to left, #f5f5f5, transparent);
+        }
+        .services-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% {
+            transform: translateX(0);
+            }
+            100% {
+            transform: translateX(-50%);
+            }
+        }
+
+        .fixed-width-tags {
+            display: flex;
+            justify-content: space-between; /* Равномерное распределение */
+            width: 100%; /* На всю ширину экрана */
+        }
+        .fixed-width-tags .tag {
+            flex: 1; /* Равная ширина для всех тегов */
+            margin: 0 5px; /* Небольшой отступ между тегами */
+            text-align: center; /* Центрирование текста */
+            white-space: nowrap; /* Текст не переносится */
+      }
+            
+    script.
+        //- const textArray = ["компьютер", "телефон", "принтер", "планшет", "ноутбук"];
+        //- const textElement = document.getElementById("changing-text");
+        //- let currentIndex = 0;
+
+        //- setInterval(() => {
+        //- textElement.textContent = textArray[currentIndex];
+        //- currentIndex = (currentIndex + 1) % textArray.length;
+        //- }, 3000);
+
+        document.getElementById('request_form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            console.log("sent")
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            const request_form_button = document.getElementById('request_form_button');
+            request_form_button.classList.add("is-loading")
+
+            fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Ошибка сети');
+                }
+                return response.json(); // Парсим JSON-ответ
+            })
+            .then((data) => {
+                console.log('Ответ сервера:', data); // Проверяем, что данные получены
+                if (data.success) {
+                    const notification = document.getElementById('notification');
+                    const notificationMessage = document.getElementById('notification-message');
+                    notificationMessage.textContent = data.message;
+                    notification.classList.remove('is-hidden');
+                    notification.classList.add('animate__animated');
+                    notification.classList.add('animate__fadeIn');
+                }
+
+                request_form_button.classList.remove("is-loading")
+            })
+            .catch((error) => {
+                console.error('Ошибка: ' + error);
+                alert('Произошла ошибка при отправке формы');
+
+                request_form_button.classList.remove("is-loading")
+            });
+        });
+
+        // Закрытие pop-up
+        document.getElementById('close-popup').addEventListener('click', function () {
+            document.getElementById('notification').classList.add('is-hidden');
+        });
+        
+        $(document).ready(function() {
+            $('#traffic_lights').addClass('is-active');
+            $('#traffic_lights_mob').addClass('is-active');
+        });
+
+        VK.Widgets.CommunityMessages("vk_community_messages", 226590122);
+
+        let inputPhone = document.getElementById("inputPhone");
+
+        if (inputPhone) {
+            inputPhone.oninput=() => phoneMask(inputPhone)
+            function phoneMask(inputEl) {
+                let patStringArr = "+7(___)___-__-__".split('');
+                let arrPush = [3, 4, 5, 7, 8, 9, 11, 12, 14, 15]
+                let val = inputEl.value;
+                let arr = val.replace(/\D+/g, "").split('').splice(1);
+                let n;
+                let ni;
+                arr.forEach((s, i) => {
+                    n = arrPush[i];
+                    patStringArr[n] = s
+                    ni = i
+                });
+                arr.length < 10 ? inputEl.style.color = 'red' : inputEl.style.color = 'green';
+                inputEl.value = patStringArr.join('');
+                n ? inputEl.setSelectionRange(n + 1, n + 1) : inputEl.setSelectionRange(17, 17)
+            }
+        }
+
+        let inputPhone2 = document.getElementById("inputPhone2");
+
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            ym(97597680, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+
+        if (inputPhone2) {
+            inputPhone2.oninput=() => phoneMask(inputPhone2)
+            function phoneMask(inputEl) {
+                let patStringArr = "+7(___)___-__-__".split('');
+                let arrPush = [3, 4, 5, 7, 8, 9, 11, 12, 14, 15]
+                let val = inputEl.value;
+                let arr = val.replace(/\D+/g, "").split('').splice(1);
+                let n;
+                let ni;
+                arr.forEach((s, i) => {
+                    n = arrPush[i];
+                    patStringArr[n] = s
+                    ni = i
+                });
+                arr.length < 10 ? inputEl.style.color = 'orange' : inputEl.style.color = 'lime';
+                inputEl.value = patStringArr.join('');
+                n ? inputEl.setSelectionRange(n + 1, n + 1) : inputEl.setSelectionRange(17, 17)
+            }
+        }

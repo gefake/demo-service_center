@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  color-scheme: light;
+}
+body {
+  background-color: #E6E6E6;
+}
+#traffic_lights {
+  position: absolute;
+  width: 30vw;
+  height: 1vh;
+  left: 55vw;
+  top: 5vh;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#traffic_lights_mob {
+  position: relative;
+  width: 100vw;
+  height: 60px;
+  left: 0;
+  top: 30;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#traffic_lights.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sortable-handler {
+    touch-action: none;
+}
+
+#main {
+  background-image: url('/static/images/background_main.png');
+  background-repeat:no-repeat;
+  background-position: center 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Left Side */
+
+#request {
+  position: absolute;
+  bottom: 17%;
+  filter: drop-shadow(0 0 150px rgb(254, 138, 30));
+  outline: rgb(254, 138, 30) solid 1px;
+  background-color: rgba(88, 47, 9, 0.808);
+  backdrop-filter: blur(30px);
+}
+
+#request_mobile {
+  position: absolute;
+  bottom: 1%;
+  min-width: 40vh;
+  max-width: 50vh;
+  filter: drop-shadow(0 0 150px rgba(254, 138, 30, 0.7));
+  outline: rgb(254, 138, 30) solid 1px;
+  background-color: rgba(68, 38, 10, 0.89);
+  backdrop-filter: blur(10px);
+}
+
+@media all and (max-width: 1024px) {
+  #request {
+    position: absolute;
+    bottom: 16%;
+    filter: drop-shadow(0 0 150px rgb(254, 138, 30));
+    outline: rgb(254, 138, 30) solid 1px;
+    background-color: rgba(68, 38, 10, 0.89);
+    backdrop-filter: blur(30px);
+  }
+
+  #main {
+    background-image: url('/static/images/background_main.png');
+    background-repeat:no-repeat;
+    background-position: center -50%;
+    background-position-y: 10%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+#title {
+    font-size: 5.9rem;
+    transition: filter 1s;
+    cursor: default;
+}
+
+#title:hover {
+    filter: drop-shadow(0 0 120px rgb(45, 76, 255));
+}
+
+/* Right Side */
+
+#right_side {
+    background-size: cover;
+    background-color: linear-gradient(90deg, #d1793118, #2f1b00e7, #2d1501a9, #1f110086, #00061c83);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: linear-gradient(15deg,#1f0c00a6,#1d0b043d,#2c020238,#0c0b2c8a,#12001fee,#3c1178ea); */
+    background-size: 500% 500%;
+    /* animation: gradient 15s ease-in-out infinite; */
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.overlay-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Font Things */
+
+.montserrat-regular {
+font-family: "Montserrat", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+.figtree-regular {
+font-family: "Figtree", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+/* flickity */
+
+.carousel {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-cell {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+}
+
+.flickity-button {
+    background: #33333300;
+  }
+  .flickity-button:hover {
+    background: #F90;
+  }
+  
+  .flickity-prev-next-button {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+  }
+  /* icon color */
+  .flickity-button-icon {
+    fill: white;
+  }
+  /* position outside */
+  .flickity-prev-next-button.previous {
+    left: -40px;
+  }
+  .flickity-prev-next-button.next {
+    right: -40px;
+  }
+
+/* typewriter */
+
+.typewriter {
+    background-color: #fff;
+    min-width: 500px;
+    padding: 1em 2em 1em 1.5em;
+    border: solid 1px #5e84ff;
+    border-radius: 0.8em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .typewriter svg {
+    padding-right: 2em;
+  }
+  
+  .typewriter h2 {
+    width: 0;
+    max-width: max-content;
+    overflow: hidden; 
+    border-right: .05em solid #4b65bb; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0; /* Gives that scrolling effect as the typing happens */
+  }
+  
+  .typing-erase {
+    animation: 
+      3s typing-erase 3s steps(50, end) infinite,
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The type and erase effect */
+  @keyframes typing-erase {
+    0% { width: 0 }
+    80% { width: 100% }
+    90%, 100% { width: 0 }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #31479171 }
+  }
+
+/* scrollbar */
+
+html {
+  scrollbar-face-color: #646464;
+  scrollbar-base-color: #646464;
+  scrollbar-3dlight-color: #646464;
+  scrollbar-highlight-color: #646464;
+  scrollbar-track-color: #000;
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: #646464;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #646464;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgb(31, 31, 31);
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: rgb(73, 73, 73);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #646464;
+}
+
+::-webkit-resizer {
+  background-color: rgb(58, 58, 58);
+}

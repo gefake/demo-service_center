@@ -1,0 +1,84 @@
+extends ../_base.pug
+
+block content
+  .is-widescreen
+    .columns.mt-6
+      include ../base/sidebar.pug
+      .column.content
+          .field
+            .buttons
+              - var n = 0;
+              while n < (dataCount / 20)
+                -n++
+                a.paginate(href=`/admin/requests/${(n - 1) * 20}-${n * 20}`).button #{n}
+          table.table.is-narrow.is-fullwidth.is-hoverable.is-striped.is-bordered#table_cms.is-hidden-mobile
+            thead
+              tr.has-text-centered
+                th ID заявки
+                th Имя
+                th Номер телефона
+                th Дата
+                th Действия
+            tbody
+              each task, value in tasks
+                tr.has-text-centered
+                  th #{task.id}
+                  th #{task.name}
+                  td #{task.phoneNumber}
+                  td #{task.date}
+                  td
+                    .buttons
+                      button.button.is-success.is-small.is-outlined(onclick=`copyNumber(${task.phoneNumber})`)
+                        span.icon.is-small
+                            i.fas.fa-clipboard
+                        span Скопировать
+                      form(action=`/admin/delete/${task.id}` method='POST')
+                        button(type='submit').button.is-danger.is-small.is-right.is-outlined
+                          span.icon.is-small
+                              i.fas.fa-trash
+                          span Удалить
+          .columns.is-hidden-desktop.is-hidden-tablet
+            each task, value in tasks
+              .column.notification.mt-5
+                  p.is-7.m-1 ID заявки: #{task.id}
+                  p.is-7.m-1 Имя: #{task.name}
+                  p.is-7.m-1 Номер телефона: #{task.phoneNumber}
+                  p.is-7.m-1 Номер телефона: #{task.phoneNumber}
+                  p.is-7.mb-2.ml-1 Дата заявки: #{task.date}
+                  .field
+                    button.button.is-success.is-small.is-fullwidth.is-outlined(onclick=`copyNumber(${task.phoneNumber})`)
+                      span.icon.is-small
+                          i.fas.fa-clipboard
+                      span Скопировать
+                  form(action=`/admin/delete/${task.id}` method='POST')
+                    .buttons
+                      .field
+                        button(type='submit').button.is-danger.is-fullwidth.is-small.is-outlined
+                          span.icon.is-small
+                              i.fas.fa-trash
+                          span Удалить
+  script.
+    function copyNumber(phoneNumber) {
+      navigator.clipboard.writeText(phoneNumber);
+    }
+
+    function doesStringMatchMostly(str1, str2) {
+      return str1.length >= str2.length && str2.includes(str1);
+    }
+
+    function addActiveClassToCurrentPage() {
+      var currentLocation = window.location.pathname;
+
+      const navLinks = document.querySelectorAll('.paginate');
+
+
+      navLinks.forEach(link => {
+        if (doesStringMatchMostly(link.getAttribute('href'), currentLocation)) {
+          link.classList.add('is-success');
+        } else {
+          link.classList.remove('is-success');
+        }
+      });
+    }
+
+    addActiveClassToCurrentPage()

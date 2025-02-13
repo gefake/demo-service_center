@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Left Side */
+
+#background {
+  background: #18181880;
+  backdrop-filter: blur(10px) brightness(80%);
+  border-radius: 10px; /* Добавление скругленных углов для эффекта стекла */
+}
+
+body, html {
+  /* background: linear-gradient(45deg, #0e011b, #110230, #0c031b, #15051b); */
+  background: linear-gradient(45deg, #0e011b, #2f1563, #29124d, #511866);
+  background-size: 400% 400%;
+  animation: gradient 5s ease-in-out infinite;
+  backdrop-filter: blur(10px); /* Размытие заднего фона */
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#left_side {
+    padding-left: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#title {
+    filter: drop-shadow(0 0 100px rgb(8, 2, 15));
+    font-size: 4rem;
+    transition: filter 1s;
+    cursor: default;
+}
+
+#title:hover {
+    filter: drop-shadow(0 0 120px rgb(16, 44, 66));
+}
+
+/* Right Side */
+
+#right_side {
+    /* background-size: cover; */
+    /* position: relative; */
+    padding: 5% 10% 1% 10%;
+    /* background-color: linear-gradient(90deg, #00142f, #00142fe7, #01102da9, #000b1f86, #00061c83); */
+}
+
+#laptop_image {
+  filter: drop-shadow(0 0 200px rgb(34, 13, 61));
+  transition: filter 0.5s ease; /* Smooth transition for the filter property */
+  animation: shadowAnimation 3s infinite alternate; /* Animation for the drop shadow effect */
+}
+
+@keyframes shadowAnimation {
+  0% {
+      filter: drop-shadow(0 0 200px rgb(71, 30, 126)); /* Initial drop shadow */
+  }
+  100% {
+      filter: drop-shadow(0 0 250px rgb(93, 41, 160)); /* Updated drop shadow */
+  }
+}
+
+.is-highlevel {
+  color: #ffffff;
+  background-color: #5c23ae;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(90deg, #00142f, #00142fe7, #01102da9, #000b1f86, #00061c83); */
+}
+
+/* Font Things */
+
+.montserrat-regular {
+font-family: "Montserrat", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+.figtree-regular {
+font-family: "Figtree", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+/* flickity */
+
+.carousel {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-cell {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+}
+
+.flickity-button {
+    background: #33333300;
+  }
+  .flickity-button:hover {
+    background: #F90;
+  }
+  
+  .flickity-prev-next-button {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+  }
+  /* icon color */
+  .flickity-button-icon {
+    fill: white;
+  }
+  /* position outside */
+  .flickity-prev-next-button.previous {
+    left: -40px;
+  }
+  .flickity-prev-next-button.next {
+    right: -40px;
+  }
+
+/* typewriter */
+
+.typewriter {
+    background-color: #fff;
+    min-width: 500px;
+    padding: 1em 2em 1em 1.5em;
+    border: solid 1px #314791;
+    border-radius: 2.8em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .typewriter svg {
+    padding-right: 2em;
+  }
+  
+  .typewriter h2 {
+    width: 0;
+    max-width: max-content;
+    overflow: hidden; 
+    border-right: .05em solid #314791; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0; /* Gives that scrolling effect as the typing happens */
+  }
+  
+  .typing-erase {
+    animation: 
+      3s typing-erase 3s steps(50, end) infinite,
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The type and erase effect */
+  @keyframes typing-erase {
+    0% { width: 0 }
+    80% { width: 100% }
+    90%, 100% { width: 0 }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #31479171 }
+  }

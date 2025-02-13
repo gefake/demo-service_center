@@ -1,0 +1,205 @@
+extends _base.pug
+
+
+block content
+    include base/navbar.pug
+    section(data-theme='light')
+        noscript
+            div
+                img(src="https://mc.yandex.ru/watch/97597680" style="position:absolute; left:-9999px;" alt="")
+        //- h1#title.is-hidden-desktop.title.is-1.is-size-2-mobile.has-text-weight-bold.has-text-white.has-text-centered.figtree-regular(style='filter: drop-shadow(0 0 20px rgb(25, 25, 25));') SERVICE CENTER
+        //- h1.subtitle.is-hidden-desktop.is-size-6-mobile.has-text-white.is-4.is-size-5-mobile.has-text-centered.montserrat-regular.mt-5(style='filter: drop-shadow(0 0 20px rgb(25, 25, 25));') Мы занимаемся ремонтом оргтехники, бытовой и цифровой техники. В числе наших услуг — заказные сборки ПК, диагностика, чистка и ремонт компьютерной техники. Наши мастера могут выполнять работы на дому у клиента или принимать технику в офисе для ремонта
+        div#vk_community_messages
+        .hero#main
+            .hero-body.animate__fadeIn.animate__animated
+                .container
+                    h1#title.title.is-1.pt-6.is-size-2-mobile.has-text-weight-bold.has-text-black.has-text-centered.figtree-regular SERVICE CENTER
+                    h1.subtitle.has-text-black.is-size-6-mobile.has-text-white.is-4.is-size-5-mobile.has-text-centered.montserrat-regular.mt-5 Мы занимаемся ремонтом цифровой, бытовой и оргтехники. В числе наших услуг — заказные сборки ПК, диагностика, чистка и ремонт компьютерной техники. Наши мастера могут выполнять работы на дому у клиента или принимать технику в офисе для ремонта
+                //.columns
+                //    .column#right_side.is-full
+                //        .overlay-elements
+                //            //- figure.image(style='width: 45vw; height: 150px;')
+                //            //-     img(src='/static/images/logo.png')
+                //            if !submitted
+                //                .box#request.is-hidden-mobile
+                //                    h3.subtitle.has-text-white.is-6.is-size-5-mobile.montserrat-regular.mb-5.mr-5.ml-3.mt-3(style='max-width: 50vw;')
+                //                        span.is-highlevel-text Оставьте заявку по форме
+                //                        br
+                //                        span и мы свяжемся с вами в ближайшее время
+                //                    form#request_form(action='submit' method='post')
+                //                        .field
+                //                            p.control
+                //                                input#inputName.input.is-large.is-medium-mobile.is-rounded.is-dark.is-highlevel-input.is-highlevel-input.is-warning(name='name' required placeholder='Ваше имя')
+                //                        .field
+                //                            p.control
+                //                                input.input.is-large.is-medium-mobile.is-rounded.is-dark.is-highlevel-input.is-highlevel-input.is-warning(id='inputPhone' name='tel' type='text' placeholder='Номер телефона')
+                //                        button#request_button.button.is-highlevel.is-rounded.is-large.mt-6.blur.is-fullwidth(type='submit' style='filter: drop-shadow(0 0 1px #fe8a1e);')
+                //                            span.icon.is-small
+                //                                i.fas.fa-bolt
+                //                            span Оставить заявку
+                //                .box#request_mobile.is-hidden-desktop.is-hidden-tablet.m-5
+                //                    h3.subtitle.has-text-white.is-6.montserrat-regular.mb-5.mr-5.ml-3.mt-3(style='max-width: 50vw;')
+                //                        span.is-highlevel-text Оставьте заявку по форме
+                //                        br
+                //                        span и мы свяжемся с вами в ближайшее время
+                //                    form#request_form(action='submit' method='post')
+                //                        .field
+                //                            p.control
+                //                                input#inputName.input.is-medium-mobile.is-rounded.is-dark.is-highlevel-input.is-highlevel-input.is-warning(name='name' required placeholder='Ваше имя')
+                //                        .field
+                //                            p.control
+                //                                input.input.is-medium-mobile.is-rounded.is-dark.is-highlevel-input.is-highlevel-input.is-warning(id='inputPhone2' name='tel' type='text' placeholder='Номер телефона')
+                //                        button#request_button.button.is-highlevel.is-rounded.mt-6.blur.is-fullwidth(type='submit' style='filter: drop-shadow(0 0 1px #fe8a1e);')
+                //                            span.icon.is-small
+                //                                i.fas.fa-bolt
+                //                            span Оставить заявку
+                //            else
+                //                .box#request
+                //                    h3.subtitle.has-text-white.is-6.is-size-5-mobile.montserrat-regular.mb-5.mr-5.ml-3.mt-3(style='max-width: 50vw;')
+                //                        p.title.is-highlevel-text.has-text-centered Спасибо за заявку!
+                //                        br
+                //                        p.subtitle.has-text-white.has-text-centered Мы уже получили её и свяжемся с вами в ближайшее время
+                //                        p.subtitle.has-text-white.has-text-centered А пока, можете ознакомиться с нашими услугами
+                //svg.arrows.is-hidden-mobile
+                //    path.a1(d='M0 0 L30 32 L60 0')
+                //    path.a2(d='M0 20 L30 52 L60 20')
+                //    path.a3(d='M0 40 L30 72 L60 40')
+        .hero.is-halfheight#secondary
+            .hero-head
+                .columns.is-multiline.is-mobile.is-centered.m-5
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/pc.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Диагностика ПК
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Определяем причину неисправности и предоставляем прозрачную оценку стоимости ремонта
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/printer.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Принтеры
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Специализируемся на ремонте принтеров всех типов: струйных, лазерных, черно-белых и цветных
+                            br
+                            | ㅤ
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/router.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Интернет и роутеры
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Мы проводим диагностику роутеров и интернет-соединения, выявляем причину неполадок и помогаем их устранить
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+                .columns.is-multiline.is-mobile.is-centered.m-5
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/tv.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Телевизоры
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Осуществляем ремонт телевизоров любой марки и модели
+                            br
+                            | ㅤ
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/phone_tablet.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Смартфоны и планшеты
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Ремонтируем смартфоны и планшеты всех марок: Apple, Samsung, Xiaomi, Huawei и др.
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+                    .column.is-preview.is-one-quarter-desktop
+                        figure.is-centered-image.image.is-rounded.is-128x128
+                            img(src='/static/images/icons/pc_build.png')
+                        h2.title.is-5.is-centered-image.has-text-white.montserrat-regular.has-text-weight-medium Заказные сборки ПК
+                            br
+                            | ㅤ
+                        h3.subtitle.is-5.has-text-grey-lighter.is-centered-image.montserrat-regular Создаем компьютеры по вашим индивидуальным требованиям.
+                        a.button.is-success.ml-5.is-medium.is-hidden-mobile.montserrat-regular.mb-5(href='#') Вызвать мастера
+                        a.button.is-success.is-hidden-desktop.is-hidden-tablet.ml-5.is-small.montserrat-regular.mb-5(href='tel:+79999999999') Вызвать мастера
+        footer.footer#footer
+            .container
+                h1.title.has-text-centered.montserrat-regular.has-text-weight-medium.has-text-white Информация о нас
+                h2.subtitle.has-text-centered.montserrat-regular.mt-3.has-text-grey-light Мы - сплочённая команда профессионалов, для которых ремонт техники - не просто работа, а призвание. Сплочённость нашей команды - это залог успеха и доверия наших клиентов.
+            .columns.is-centered.is-multiline.is-mobile.is-gapless
+                .column.is-5-desktop
+                    .content.has-text-centered
+                        h1.title.is-4.has-text-centered.has-text-white.montserrat-regular.has-text-weight-medium Опыт
+                        p.has-text-grey-light Мы понимаем, что мир технологий не стоит на месте, и чтобы быть на шаг впереди, наши специалисты постоянно повышают свою квалификацию. Регулярные тренинги и курсы позволяют нам осваивать новые методики и подходы к ремонту, что гарантирует высокое качество и надёжность наших услуг.
+                .column.is-5-desktop
+                    .content.has-text-centered
+                        h1.title.is-4.has-text-centered.has-text-white.montserrat-regular.has-text-weight-medium Качество
+                        p.has-text-grey-light Мы ценим мнение каждого нашего клиента и просим вас оставлять обратную связь. Это помогает нам понимать, что мы делаем хорошо, а над чем ещё стоит поработать. Ваши отзывы позволяют нам совершенствоваться и становиться лучше с каждым днём.
+                .column.is-5-desktop
+                    .content.has-text-centered
+                        h1.title.is-4.has-text-centered.has-text-white.montserrat-regular.has-text-weight-medium Надежность
+                        p.has-text-grey-light Наши мастера всегда готовы прийти на помощь. Мы оперативно реагируем на запросы и стараемся решать проблемы клиентов в кратчайшие сроки. Надежность и ответственность - наши ключевые принципы в работе.
+                .column.is-5-desktop
+                    .content.has-text-centered
+                        h1.title.is-4.has-text-centered.has-text-white.montserrat-regular.has-text-weight-medium Гарантия
+                        p.has-text-grey-light Наши мастера готовы приехать к вам на дом и починить любую технику быстро и качественно. Доверьте свою технику профессионалам - и вы останетесь довольны результатом! Мы гарантируем качество и предоставляем гарантию на все виды выполненных работ.
+
+    script.
+        document.addEventListener('wheel', function (e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                return false;
+            }
+        }, {passive: false});
+
+        VK.Widgets.CommunityMessages("vk_community_messages", 226590122);
+
+        let inputPhone = document.getElementById("inputPhone");
+
+        if (inputPhone) {
+            inputPhone.oninput=() => phoneMask(inputPhone)
+            function phoneMask(inputEl) {
+                let patStringArr = "+7(___)___-__-__".split('');
+                let arrPush = [3, 4, 5, 7, 8, 9, 11, 12, 14, 15]
+                let val = inputEl.value;
+                let arr = val.replace(/\D+/g, "").split('').splice(1);
+                let n;
+                let ni;
+                arr.forEach((s, i) => {
+                    n = arrPush[i];
+                    patStringArr[n] = s
+                    ni = i
+                });
+                arr.length < 10 ? inputEl.style.color = 'orange' : inputEl.style.color = 'lime';
+                inputEl.value = patStringArr.join('');
+                n ? inputEl.setSelectionRange(n + 1, n + 1) : inputEl.setSelectionRange(17, 17)
+            }
+        }
+
+        let inputPhone2 = document.getElementById("inputPhone2");
+
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            ym(97597680, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+
+        if (inputPhone2) {
+            inputPhone2.oninput=() => phoneMask(inputPhone2)
+            function phoneMask(inputEl) {
+                let patStringArr = "+7(___)___-__-__".split('');
+                let arrPush = [3, 4, 5, 7, 8, 9, 11, 12, 14, 15]
+                let val = inputEl.value;
+                let arr = val.replace(/\D+/g, "").split('').splice(1);
+                let n;
+                let ni;
+                arr.forEach((s, i) => {
+                    n = arrPush[i];
+                    patStringArr[n] = s
+                    ni = i
+                });
+                arr.length < 10 ? inputEl.style.color = 'orange' : inputEl.style.color = 'lime';
+                inputEl.value = patStringArr.join('');
+                n ? inputEl.setSelectionRange(n + 1, n + 1) : inputEl.setSelectionRange(17, 17)
+            }
+        }

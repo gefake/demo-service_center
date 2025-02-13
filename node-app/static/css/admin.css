@@ -1,0 +1,16 @@
+.menu {
+  position: sticky;
+  display: inline-block;
+  vertical-align: top;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 20vw;
+  top: 0;
+  bottom: 0;
+  padding: 30px 20px 20px 50px;
+}
+
+.content {
+  margin: 50px;
+  display: inline-block;
+}

@@ -1,0 +1,34 @@
+extends ../_base.pug
+
+block content
+  .is-widescreen
+    .columns.mt-6
+      include ../base/sidebar.pug
+      .column.content
+          form(action=`/admin/telegram-trust` method='POST')
+            .field
+              input.input(placeholder='@username' name='username')
+            .field
+              button(type='submit').button.is-fullwidth.mb-3.is-success.is-dark Добавить пользователя
+          table.table.is-narrow.is-fullwidth.is-hoverable.is-striped.is-bordered#table_cms
+            thead
+              tr.has-text-centered
+                th ID
+                th Никнейм пользователя
+                th Действия
+            tbody
+              each user, value in users
+                tr.has-text-centered
+                  th #{user.id}
+                  th #{user.telegramID}
+                  td
+                    .buttons
+                      form(action=`/admin/telegram-trust/delete/${user.id}` method='POST')
+                        button(type='submit').button.is-danger.is-small.is-outlined
+                          span.icon.is-small
+                              i.fas.fa-trash
+                          span Удалить
+  script.
+    function copyNumber(phoneNumber) {
+      navigator.clipboard.writeText(phoneNumber);
+    }

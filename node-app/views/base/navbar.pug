@@ -1,0 +1,102 @@
+nav#navbarService.is-dark.animate.navbar(role='navigation' aria-label='main navigation')
+  .navbar-brand
+    a#logo.navbar-item.ml-6.is-size-4.montserrat-medium.navbar-item-tall.is-hidden-mobile(href='/')
+      img.image(src='/static/images/icons/logo_t4.png')
+    a#logo.navbar-item.ml-2.is-size-4.montserrat-medium.navbar-item-tall.is-hidden-desktop.is-hidden-tablet(href='/')
+      img.image(src='/static/images/icons/logo_t4.png')
+    a#logo.navbar-item.ml-3.is-size-5.montserrat-medium.is-hidden-mobile(href='#secondary') Услуги
+    a#logo.navbar-item.ml-3.is-size-5.montserrat-medium.is-hidden-mobile(href='#footer') О нас
+    .navbar-item
+      .buttons
+        a(href='tel:+79999999999').button.ml-3.is-link.is-medium.is-hidden-mobile
+          span.icon.is-small
+            i.fas.fa-phone-volume
+          span Вызвать мастера
+        a(href='https://vk.com/highlevel30' target="_blank").button.is-link.is-medium.is-hidden-mobile(style='background-color:#0077ff;outline:0px solid')
+          span.icon.is-small
+            i.fab.fa-vk
+        a(href='https://wa.me/message/DGWKPKYDQFRQJ1' target="_blank").button.is-link.has-text-white.is-medium.is-hidden-mobile(style='background-color:#2cb742;outline:0px solid')
+          span.icon.is-small
+            i.fab.fa-whatsapp
+        a(href='https://t.me/highlevel30' target="_blank").button.is-link.has-text-white.is-medium.is-hidden-mobile(style='background-color:#27A7E7;outline:0px solid')
+          span.icon.is-small
+            i.fab.fa-telegram
+        //- a(href='https://vk.com/highlevel30' target="_blank").is-rounded.button.is-highlevel.is-medium.is-hidden-mobile
+        //-   span.icon.is-small
+        //-     i.fab.fa-vk
+        //-   span ВКонтакте
+    a.navbar-burger.mr-5(role='button' aria-label='menu' aria-expanded='false' data-target='navbarServiceCenter')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+  #navbarServiceCenter.navbar-menu
+    .navbar-start
+        if user
+          .navbar-item.is-right.is-hidden-desktop.is-hidden-tablet
+            a(href='/admin').is-rounded.button.is-fullwidth.is-highlevel.is-medium
+              span.icon.is-small
+                i.fas.fa-star
+              span Админ-панель
+        .navbar-item.is-hidden-desktop
+          a(href='tel:+79999999999').is-link.is-fullwidth.button.is-medium
+            //- span.icon.is-small
+            //-     i.fas.fa-phone-volume
+            span +7 (988) 061-40-97
+        .navbar-item.is-hidden-desktop.is-hidden-tablet
+          a#logo.button.navbar-item.ml-3.is-size-4.montserrat-medium(href='#secondary') Услуги
+          a#logo.button.navbar-item.mt-3.ml-3.is-size-4.montserrat-medium(href='#footer') О нас
+          a#logo.button.navbar-item.mt-3.ml-3.is-size-4.montserrat-medium(href='https://vk.com/highlevel30' target="_blank")
+            span.icon.is-small
+              i.fab.fa-vk
+            span ВКонтакте
+
+    .navbar-end.mr-6
+      //- .navbar-item.has-text-white.montserrat-medium.has-text-weight-semibold
+      //-   span.icon.is-small.has-text-white
+      //-       i.fas.fa-clock
+      //-   span.ml-3.has-text-white 24/7 Круглосуточно
+      //- .navbar-item.has-text-white.montserrat-medium.has-text-weight-semibold
+      //-   span.icon.is-small.has-text-white
+      //-       i.fas.fa-city
+      //-   span.ml-3.has-text-white г. Астрахань, ул. Савушкина 43
+      .navbar-item.is-hidden-mobile
+        if user
+          .buttons
+            a(href='/admin').button.is-medium
+              span.icon.is-small
+                i.fas.fa-star
+              span Админ-панель
+      .navbar-item.is-hidden-mobile
+        .buttons
+          a(href='tel:+79999999999').button.is-link.is-medium
+            //- span.icon.is-small
+            //-     i.fas.fa-phone-volume
+            span +7 (988) 061-40-97
+
+style.
+  .navbar {
+    position: relative;
+  }
+
+  .high-level-text {
+    color: #fe8a1e;
+  }
+
+script.
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check for click events on the navbar burger icon
+    document.querySelector(".navbar-burger").addEventListener("click", function() {
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      this.classList.toggle("is-active");
+      document.querySelector(".navbar-menu").classList.toggle("is-active");
+    });
+    // Check for click events on the submenu links
+    document.querySelectorAll("a.navbar-submenu-link").forEach(function(link) {
+      link.addEventListener("click", function(e) { 
+        e.preventDefault();
+        // Toggle "open" class on the target submenu
+        document.querySelector(`#${this.getAttribute("data-target")}`).classList.toggle("open")
+      })
+    });
+  });

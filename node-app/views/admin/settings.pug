@@ -1,0 +1,33 @@
+extends ../_base.pug
+
+block content
+  .is-widescreen
+    .columns.mt-6
+      include ../base/sidebar.pug
+      .column.content.montserrat-regular
+          .field
+            h1.title Настройки сайта
+            h3.subtitle Светофор на главной странице
+
+            if traffic_lights==1
+              tag.tag.is-dark.has-text-white.is-medium 📟 Выбран автоматический светофор
+            else if traffic_lights==2
+              tag.tag.is-dark.has-text-white.is-medium 🟢 Выбран зеленый цвет светофора
+            else if traffic_lights==3
+              tag.tag.is-dark.has-text-white.is-medium 🟡 Выбран желтый цвет светофора
+            else if traffic_lights==4
+              tag.tag.is-dark.has-text-white.is-medium 🔴 Выбран красный цвет светофора
+            p.subtitle.mt-4 Нажмите на одну из кнопок для переключения
+            .field.has-addons.mt-5
+              .control
+                form(action=`/admin/traffic-lights/1` method='POST')
+                  button.button Автоматически
+              .control
+                  form(action=`/admin/traffic-lights/2` method='POST')
+                    button.button 🟢 Зеленый
+              .control
+                  form(action=`/admin/traffic-lights/3` method='POST')
+                    button.button 🟡 Желтый
+              .control
+                  form(action=`/admin/traffic-lights/4` method='POST')
+                    button.button 🔴 Красный

@@ -1,0 +1,137 @@
+#secondary {
+  background-image: url('/static/images/background_secondary2.png');
+  background-repeat:no-repeat;
+  background-position: center 30%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media all and (max-width: 1024px) {
+  #secondary {
+    background-image: url('/static/images/background_secondarys.png');
+    background-color: #E6E6E6;
+    background-repeat:no-repeat;
+    background-position: center 30%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.is-preview {
+  margin: 0px 15px 0px 15px;
+  padding: 50%;
+  border-radius: 5%;
+  min-width: 400px;
+  /* filter: drop-shadow(0 0 100px rgba(254, 138, 30, 0.1)); */
+  margin-top: 10px;
+  background-color: #1b1b1ba2;
+  /* backdrop-filter: blur(1px); */
+  background-color: rgba(254, 138, 30, 0.1);
+  backdrop-filter: blur(30px);
+}
+
+@media all and (max-width: 400px) {
+  .is-preview {
+    margin: 15px 15px 0px 15px;
+    border-radius: 5%;
+    min-width: 65vw;
+    /* filter: drop-shadow(0 0 100px rgba(254, 138, 30, 0.1)); */
+    background-color: #1b1b1ba2;
+    /* backdrop-filter: blur(1px); */
+    background-color: rgba(254, 138, 30, 0.1);
+    backdrop-filter: blur(30px);
+  }
+
+}
+
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 30px;
+}
+
+.arrows path {
+  stroke: #ca873a;
+  fill: transparent;
+  stroke-width: 1px;	
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow
+{
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+}
+
+.arrows path.a1 {
+  animation-delay:-1s;
+  -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+  animation-delay:-0.5s;
+  -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {	
+  animation-delay:0s;
+  -webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+.preview-content {
+}
+
+.is-centered-image {
+  filter: drop-shadow(0 0 50px #F59942);
+  margin: 1.3em;
+  display: block;
+}
+
+#footer {
+  background: #E6E6E6;
+  background-image: url('/static/images/background_footer.png');
+  background-repeat:no-repeat;
+  background-position: center 0%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media all and (max-width: 1024px) {
+  #footer {
+    background-image: url('/static/images/background_footer2.png');
+    background-color: #E6E6E6;
+    background-repeat:no-repeat;
+    background-position: center 30%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.bg-image {
+  background-image: url('/static/images/icons/pc.png');
+  background-repeat:no-repeat;
+  background-position: 10% -10%;
+  background-size: 200px;
+}

@@ -1,0 +1,77 @@
+aside.menu.is-hidden-mobile
+  p.menu-label.
+    Админ-панель
+    
+  ul.menu-list
+    li
+      if activeTab=='Вызовы'
+        a(href='/admin/requests').is-active Вызовы
+        a(href='/admin/telegram') Telegram
+        a(href='/admin/settings') Настройки
+      else if activeTab=='Telegram'
+        a(href='/admin/requests') Вызовы
+        a(href='/admin/telegram').is-active Telegram
+        a(href='/admin/settings') Настройки
+      else
+        a(href='/admin/requests') Вызовы
+        a(href='/admin/telegram') Telegram
+        a(href='/admin/settings').is-active Настройки
+  //-   li
+      //- a Customers
+
+  p.menu-label.
+    Прочее
+  ul.menu-list
+    li
+      a(href='/') Вернуться на сайт
+    
+  ul.menu-list
+nav#navbarServiceAdmin.is-fixed-top.navbar.is-hidden-desktop.is-hidden-tablet(role='navigation' aria-label='main navigation')
+  .navbar-brand
+    a.button.mt-1.mb-1.is-small.navbar-item.is-left.ml-2.is-size-6.montserrat-medium(href='/admin') Админ-панель
+      //- a.button.mt-1.mb-1.is-small.navbar-item.is-centered.is-size-6.montserrat-medium(href='/admin/requests') Вызовы
+      //- a.button.mt-1.mb-1.is-small.navbar-item.is-size-6.montserrat-medium(href='/admin/telegram') Телеграм
+    a.navbar-burger.mr-5(role='button' aria-label='menu' aria-expanded='false' data-target='navbarServiceCenter')
+      span.is-highlevel-text(aria-hidden='true')
+      span.is-highlevel-text(aria-hidden='true')
+      span.is-highlevel-text(aria-hidden='true')
+      span.is-highlevel-text(aria-hidden='true')
+  #navbarServiceAdminCenter.navbar-menu(style='background-color: black;')
+    .navbar-start
+        .navbar-item
+          a#logo.button.navbar-item.mr-2.is-size-4.montserrat-medium(href='/admin/requests') Вызовы
+          a#logo.button.navbar-item.mr-2.mt-3.is-size-4.montserrat-medium(href='/admin/telegram') Telegram
+          a#logo.button.navbar-item.mr-2.mt-3.is-size-4.montserrat-medium(href='/') Вернуться на сайт
+
+style.
+  #navbarServiceAdmin {
+    background: rgba(0.3, 0.3, 0.3, 0.5);
+    backdrop-filter: blur(9px);
+  }
+
+  .navbar {
+    outline: 2px solid;
+    outline-color: rgba(254, 138, 30, 0.1);
+  }
+
+  .high-level-text {
+    color: #fe8a1e;
+  }
+
+script.
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for click events on the navbar burger icon
+      document.querySelector(".navbar-burger").addEventListener("click", function() {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        this.classList.toggle("is-active");
+        document.querySelector(".navbar-menu").classList.toggle("is-active");
+      });
+      // Check for click events on the submenu links
+      document.querySelectorAll("a.navbar-submenu-link").forEach(function(link) {
+        link.addEventListener("click", function(e) { 
+          e.preventDefault();
+          // Toggle "open" class on the target submenu
+          document.querySelector(`#${this.getAttribute("data-target")}`).classList.toggle("open")
+        })
+      });
+    });
