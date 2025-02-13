@@ -1,27 +1,25 @@
-Сайт был разработан в качестве дипломной выпускной работы в университет на специальность Web-разработчика.
+Сайт-визитка для сервисного центра.
+
 - Функциональный RestAPI
-- Адаптивный дизайн страниц на базе Bulma
-- Продуманная система добавления складов и товаров в базу данных
-- Админка и страницы с заказами, складами, прокладкой маршрутов через карту 2GIS, поиска адресов доставки через API
-- Статстика в админке, графики купленных товаров по выбранным датам
-- Система регистрации и заказов
-- Возможноость выгрузки данных статистики в EXCEL
+- Адаптивный дизайн страниц на базе Bulma (телефоны, планшеты, ПК)
+- Телеграм-бот, который пересылает заявки всем пользователям в вайтлисте
+- CMS-система: подача заявки на выезд пользователем, админка для просмотра заявок в БД, добавление людей в вайтлист телеграм-бота
+- Простенькая система "светофора": установление занятости сотрудников компании в зависимости от времени суток
 
 ### Видео-демонстрация на ЯД: https://disk.yandex.ru/i/1YwvdLhImSlgtA
 
 # Основные страницы сайта
 
-### Страница складов (админка)
-![photo_2024-07-02_22-10-39](https://github.com/user-attachments/assets/ddb88eca-3082-48b7-a490-5ea994d0545c)
+### Лендинг
 
-### Страница статистики (админка)
-![photo_2024-07-02_22-01-21](https://github.com/user-attachments/assets/63922d94-7be8-4f48-b79f-11c3ffb7440d)
-![photo_2024-06-30_17-35-52](https://github.com/user-attachments/assets/f6fb5e60-94e1-400f-be18-42691d249de7)
+![brave_1SI1FrBlRu](https://github.com/user-attachments/assets/7a71d8ac-a46d-4521-96f1-89dec7d72a99)
+![brave_d2hzHhGtwl](https://github.com/user-attachments/assets/2c36c459-bd44-464c-8e47-a599205cf364)
+![brave_L9QARcd3pe](https://github.com/user-attachments/assets/5c6a4729-e404-4722-9bf5-bdab1c27c906)
 
-### Страница доставок и заказов (админка)
-![photo_2024-06-30_14-19-27](https://github.com/user-attachments/assets/a84f02b8-c77d-4ade-ab28-b2e3baf1adf9)
-![photo_2024-06-30_14-19-55](https://github.com/user-attachments/assets/3c86e6a9-9755-42fc-9e63-064c4e89f74a)
-![photo_2024-07-01_12-40-57](https://github.com/user-attachments/assets/0e73e235-5f71-4a75-8a9b-ecfc035150bd)
+### Админка
 
-# Структура базы данных
-![photo_2024-06-29_22-47-41](https://github.com/user-attachments/assets/3a1ec33d-9d96-4e00-af7a-cf4be83495b7)
+![brave_wHz7ZU7fkS](https://github.com/user-attachments/assets/662284b8-a579-4ed1-95d6-963ca87efc2a)
+![brave_zerwtYtHWE](https://github.com/user-attachments/assets/bc2f703c-4d86-41da-8fd8-34979a52a807)
+![brave_zlVE2Dp7bD](https://github.com/user-attachments/assets/83a1ed4f-51e6-45b6-b310-be2929cdcd93)
+![brave_qVF6WYP8aq](https://github.com/user-attachments/assets/ac03ba19-04f9-47aa-863f-92361c0c4bc2)
+
